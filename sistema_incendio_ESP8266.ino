@@ -26,7 +26,7 @@ int sensorChama = D1;
 /*** Sensor MQ-2 ***/ 
 int pinSensor = A0; //Pino Sensor
 int var = 0;
-int ValDesarm = 20; //Variável para selecionar a quantidade de Gás/Fumaça detectada
+int ValDesarm = 30; //Variável para selecionar a quantidade de Gás/Fumaça detectada
 
 const char *ssid = "REDE-WIFI";
 const char *password = "SENHA-WIFI";
@@ -142,7 +142,7 @@ void loop() {
     digitalWrite(greenGasFu, HIGH); 
   }
 // temp
-  if(SensorTemp >= tempMax){
+  if(SensorTemp > tempMax){
     digitalWrite(greenTemp, LOW); 
     digitalWrite(redTemp, HIGH); 
   }
@@ -156,13 +156,13 @@ void loop() {
     digitalWrite(buzzer, LOW); 
   }
   // status
-  if(SensorTemp<33 && SensorGasFu<ValDesarm){
+  if(SensorTemp<=tempMax && SensorGasFu<=ValDesarm){
     StatusLeitura = "Normal";
   }
-  else if (SensorGasFu>=ValDesarm || SensorTemp>=33){
+  else if (SensorGasFu>ValDesarm || SensorTemp>tempMax){
     StatusLeitura = "Risco";
   }
-  else if(SensorTemp>35 || SensorGasFu>30 || SensorChama==LOW){
+  else if(SensorChama==LOW){
     StatusLeitura = "Alto risco";
   } 
 
