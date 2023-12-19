@@ -26,7 +26,7 @@ int sensorChama = D1;
 /*** Sensor MQ-2 ***/ 
 int pinSensor = A0; //Pino Sensor
 int var = 0;
-int ValDesarm = 20; //VariÃ¡vel para selecionar a quantidade de GÃ¡s/FumaÃ§a detectada
+int ValDesarm = 20; //Variável para selecionar a quantidade de Gás/Fumaça detectada
 
 const char *ssid = "REDE-WIFI";
 const char *password = "SENHA-WIFI";
